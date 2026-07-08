@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import TrainerDashboard from './pages/TrainerDashboard'; // Yesterday's task
-import RecordingDashboard from './pages/RecordingDashboard'; // Today's task
+import SessionRecordings from './pages/SessionRecordings'; // Today's task component
 
 function App() {
   return (
     <Router>
       <div style={styles.appContainer}>
-        
+
         {/* Navigation Bar to switch between tasks easily */}
         <nav style={styles.navBar}>
-          <div style={styles.logo}>👨 Trainer Workspace</div>
+          <div style={styles.logo}>🏋️‍♂️ Trainer Workspace</div>
           <div style={styles.linksRow}>
             <Link to="/trainer/dashboard" style={styles.navLink}>🔴 Live Sessions Task</Link>
-            <Link to="/trainer/recordings" style={styles.navLink}>📹 Upload Recordings Task</Link>
+            <Link to="/trainer/recordings" style={styles.navLink}>📹 Session Recordings Archive</Link>
           </div>
         </nav>
 
@@ -21,10 +21,10 @@ function App() {
         <Routes>
           {/* Automatically open yesterday's task first */}
           <Route path="/" element={<Navigate to="/trainer/dashboard" replace />} />
-
+          
           {/* Both Task Paths Live Safely Side-by-Side */}
           <Route path="/trainer/dashboard" element={<TrainerDashboard />} />
-          <Route path="/trainer/recordings" element={<RecordingDashboard />} />
+          <Route path="/trainer/recordings" element={<SessionRecordings />} />
         </Routes>
 
       </div>
